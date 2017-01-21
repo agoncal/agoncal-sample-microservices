@@ -12,15 +12,21 @@ import javax.ws.rs.core.Response;
  *         --
  */
 @Path("/quote")
+@Produces(MediaType.TEXT_PLAIN)
 public class S5Endpoint {
+
+    // ======================================
+    // =             Constants              =
+    // ======================================
+
+    public static final String QUOTE = "One Ring to rule them all. One Ring to find them,";
 
     // ======================================
     // =          Business methods          =
     // ======================================
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public Response retrieve() {
-        return Response.ok("One Ring to rule them all. One Ring to find them,").build();
+    public Response quote() {
+        return Response.ok(QUOTE).build();
     }
 }

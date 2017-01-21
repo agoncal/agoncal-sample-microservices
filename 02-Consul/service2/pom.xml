@@ -67,7 +67,7 @@
     </dependencies>
 
     <build>
-        <finalName>service1</finalName>
+        <finalName>service2</finalName>
     </build>
 
     <profiles>
@@ -76,7 +76,7 @@
             <dependencies>
                 <dependency>
                     <groupId>org.wildfly.swarm</groupId>
-                    <artifactId>microprofile</artifactId>
+                    <artifactId>jaxrs</artifactId>
                 </dependency>
             </dependencies>
             <build>

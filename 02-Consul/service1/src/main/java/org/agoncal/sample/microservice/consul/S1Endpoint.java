@@ -12,15 +12,21 @@ import javax.ws.rs.core.Response;
  *         --
  */
 @Path("/quote")
+@Produces(MediaType.TEXT_PLAIN)
 public class S1Endpoint {
+
+    // ======================================
+    // =             Constants              =
+    // ======================================
+
+    public static final String QUOTE = "Three Rings for the Elven-kings under the sky,";
 
     // ======================================
     // =          Business methods          =
     // ======================================
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public Response retrieve() {
-        return Response.ok("Three Rings for the Elven-kings under the sky,").build();
+    public Response quote() {
+        return Response.ok(QUOTE).build();
     }
 }

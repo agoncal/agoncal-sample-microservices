@@ -12,15 +12,21 @@ import javax.ws.rs.core.Response;
  *         --
  */
 @Path("/quote")
+@Produces(MediaType.TEXT_PLAIN)
 public class S4Endpoint {
+
+    // ======================================
+    // =             Constants              =
+    // ======================================
+
+    public static final String QUOTE = "One for the Dark Lord on his dark throne.";
 
     // ======================================
     // =          Business methods          =
     // ======================================
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public Response retrieve() {
-        return Response.ok("One for the Dark Lord on his dark throne.").build();
+    public Response quote() {
+        return Response.ok(QUOTE).build();
     }
 }

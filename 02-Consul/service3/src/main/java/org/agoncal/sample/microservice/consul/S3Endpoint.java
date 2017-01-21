@@ -12,15 +12,21 @@ import javax.ws.rs.core.Response;
  *         --
  */
 @Path("/quote")
+@Produces(MediaType.TEXT_PLAIN)
 public class S3Endpoint {
+
+    // ======================================
+    // =             Constants              =
+    // ======================================
+
+    public static final String QUOTE = "Nine for Mortal Men doomed to die,";
 
     // ======================================
     // =          Business methods          =
     // ======================================
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public Response retrieve() {
-        return Response.ok("Nine for Mortal Men doomed to die,").build();
+    public Response quote() {
+        return Response.ok(QUOTE).build();
     }
 }

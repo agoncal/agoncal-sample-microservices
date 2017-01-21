@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response;
 import java.net.URI;
 
 import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
+import static org.agoncal.sample.microservice.consul.S6Endpoint.QUOTE;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Arquillian.class)
@@ -46,6 +47,6 @@ public class S6EndpointTest {
     public void shouldCheckQuote() throws Exception {
         Response response = ClientBuilder.newClient().target(baseURL).path("/quote").request(TEXT_PLAIN).get();
         assertEquals(200, response.getStatus());
-        assertEquals("One Ring to bring them all and in the darkness bind them.", response.readEntity(String.class));
+        assertEquals(QUOTE, response.readEntity(String.class));
     }
 }
