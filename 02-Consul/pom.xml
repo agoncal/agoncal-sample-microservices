@@ -11,12 +11,12 @@
 
     <modules>
         <module>commons</module>
-        <module>service1</module>
-        <module>service2</module>
-        <module>service3</module>
-        <module>service4</module>
-        <module>service5</module>
-        <module>service6</module>
+        <module>quote1</module>
+        <module>quote2</module>
+        <module>quote3</module>
+        <module>quote4</module>
+        <module>quote5</module>
+        <module>quote6</module>
     </modules>
 
     <prerequisites>
