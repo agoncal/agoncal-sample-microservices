@@ -27,6 +27,10 @@
             <artifactId>javaee-api</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>topology-consul</artifactId>
+        </dependency>
 
         <!-- TEST -->
         <dependency>
