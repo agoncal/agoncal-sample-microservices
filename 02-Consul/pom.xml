@@ -206,14 +206,14 @@
                             <!--<imageTag>${project.version}</imageTag>-->
                             <imageTag>latest</imageTag>
                         </imageTags>
-                        <resources>
-                            <resource>
-                                <directory>${project.build.directory}</directory>
-                                <includes>
-                                    <include>${project.build.finalName}.war</include>
-                                </includes>
-                            </resource>
-                        </resources>
+                        <!--<resources>-->
+                            <!--<resource>-->
+                                <!--<directory>${project.build.directory}</directory>-->
+                                <!--<includes>-->
+                                    <!--<include>${project.build.finalName}.war</include>-->
+                                <!--</includes>-->
+                            <!--</resource>-->
+                        <!--</resources>-->
                     </configuration>
                     <executions>
                         <execution>

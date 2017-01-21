@@ -71,7 +71,7 @@
     </dependencies>
 
     <build>
-        <finalName>service5</finalName>
+        <finalName>${project.artifactId}</finalName>
     </build>
 
     <profiles>

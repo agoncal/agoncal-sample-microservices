@@ -75,7 +75,7 @@
     </dependencies>
 
     <build>
-        <finalName>service1</finalName>
+        <finalName>${project.artifactId}</finalName>
     </build>
 
     <profiles>
@@ -117,10 +117,6 @@
                         <includes>
                             <include>Dockerfile</include>
                         </includes>
-                        <filtering>true</filtering>
-                    </resource>
-                    <resource>
-                        <directory>src/main/resources</directory>
                     </resource>
                 </resources>
 
