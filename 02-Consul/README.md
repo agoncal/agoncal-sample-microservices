@@ -22,12 +22,16 @@ You have different ways to build and test the app :
 * `docker image ls` : show all the images
 * `docker image ls | grep quote` : show all the images for quotes
 * `docker image ls | grep quote` : show all the images for quotes
+* `docker run -p 8081:8081 agoncal/quote1`
 
 ### Docker compose
 
 * `docker-compose up` : executes the 6 services with a consul
 * `docker-compose down` : add the `--remove-orphans` flags if needed
-* `docker run -p 8081:8081 agoncal/quote1`
+
+* `docker ps`: you will be able to see all the quote services and consul
+* `docker exec -t <2c3f777af3e0> consul members` : checks all the consul members running on Docker 
+
 
 ## Consul
 
@@ -42,6 +46,7 @@ Check the [REST APIs](https://www.consul.io/docs/agent/http.html) at :
 * [http://localhost:8500/v1/catalog/nodes]()
 * [http://localhost:8500/v1/catalog/services]()
 * [http://localhost:8500/v1/catalog/service/quote1]()
+* [http://localhost:8500/v1/health/service/consul]()
 
 # Licensing
 

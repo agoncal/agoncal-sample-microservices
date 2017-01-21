@@ -9,3 +9,23 @@ services:
         image: agoncal/quote1:latest
         ports:
               - "8081:8081"
+    quote2:
+        image: agoncal/quote2:latest
+        ports:
+              - "8082:8082"
+    quote3:
+        image: agoncal/quote3:latest
+        ports:
+              - "8083:8083"
+    quote4:
+        image: agoncal/quote4:latest
+        ports:
+              - "8084:8084"
+    quote5:
+        image: agoncal/quote5:latest
+        ports:
+              - "8085:8085"
+    quote6:
+        image: agoncal/quote6:latest
+        ports:
+              - "8086:8086"
