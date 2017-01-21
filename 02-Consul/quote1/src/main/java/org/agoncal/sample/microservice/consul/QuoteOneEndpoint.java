@@ -46,7 +46,7 @@ public class QuoteOneEndpoint {
         // Invoke Service 2
         URI chainURI = ConsulRegistry.discoverServiceURI("quote2");
         LOG.info("##### URI " + chainURI);
-        String nextQuote  = ClientBuilder.newClient().target(chainURI).path("quote").request(TEXT_PLAIN).get(String.class);
+        String nextQuote  = ClientBuilder.newClient().target(chainURI).path("quotes").request(TEXT_PLAIN).get(String.class);
 
         return Response.ok(QUOTE + nextQuote).build();
     }

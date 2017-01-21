@@ -5,6 +5,7 @@ import com.ecwid.consul.v1.agent.model.Service;
 
 import java.net.URI;
 import java.util.Map;
+import java.util.logging.Logger;
 
 /**
  * @author Antonio Goncalves
@@ -12,6 +13,16 @@ import java.util.Map;
  *         --
  */
 public class ConsulRegistry {
+
+    // ======================================
+    // =             Constants              =
+    // ======================================
+
+    public static final Logger LOG = Logger.getLogger(ConsulRegistry.class.getName());
+
+    // ======================================
+    // =          Business methods          =
+    // ======================================
 
     public static URI discoverServiceURI(String name) {
 
@@ -31,7 +42,9 @@ public class ConsulRegistry {
             throw new RuntimeException("Service '" + name + "' cannot be found!");
 
 
+        // ...
         try {
+            LOG.info("#### Discovering service " + name + " at http://" + match.getAddress() + ":" + match.getPort());
             return new URI("http://" + match.getAddress() + ":" + match.getPort());
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -39,7 +52,8 @@ public class ConsulRegistry {
     }
 
     private static ConsulClient getConsulClient() {
-        String consulHost = System.getProperty("consul.host", "localhost"); // DOCKER
+        String consulHost = System.getProperty("consul.host", "localhost");
+        LOG.info(("#### Consul client on address : " + consulHost));
         ConsulClient client = new ConsulClient(consulHost);
         return client;
     }
