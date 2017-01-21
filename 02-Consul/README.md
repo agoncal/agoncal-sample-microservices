@@ -9,6 +9,26 @@ The purpose of this sample is to show you how WildFly Swarm Topology interacts w
 
 [Read more on my blog](http://antoniogoncalves.org/2011/01/12/bootstrapping-cdi-in-several-environments/)
 
+## Building
+
+You have different ways to build and test the app : 
+
+* `mvn clean install` : creates several war files to deploy on a Wildfly 
+* `mvn clean install -Pswarm` : creates several uber-jar files so you can execute the jar 
+* `mvn clean install -Pswarm,docker` : creates docker images for the services 
+
+## Docker
+
+* `docker image ls` : show all the images
+* `docker image ls | grep quote` : show all the images for quotes
+* `docker image ls | grep quote` : show all the images for quotes
+
+### Docker compose
+
+* `docker-compose up` : executes the 6 services with a consul
+* `docker-compose down` : add the `--remove-orphans` flags if needed
+* `docker run -p 8081:8081 agoncal/quote1`
+
 ## Consul
 
 Start consul :

@@ -7,7 +7,7 @@
     <artifactId>quote1</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
-    <name>MicroServices Sample with Wildfly Swarm and Consul :: Service 1</name>
+    <name>MicroServices Sample with Wildfly Swarm and Consul :: Quote 1</name>
 
     <parent>
         <groupId>org.agoncal.sample.microservice.consul</groupId>
@@ -112,26 +112,24 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>src/main/docker</directory>
+                        <directory>${project.basedir}/src/main/docker</directory>
                         <targetPath>${project.build.directory}/docker</targetPath>
                         <includes>
                             <include>Dockerfile</include>
                         </includes>
                     </resource>
                 </resources>
-
                 <plugins>
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <skipTests>true</skipTests>
                         </configuration>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>com.spotify</groupId>
-                        <artifactId>docker-maven-plugin</artifactId>
                     </plugin>
                 </plugins>
             </build>

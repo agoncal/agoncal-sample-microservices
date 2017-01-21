@@ -1,0 +1,11 @@
+version: "2"
+
+services:
+    consul:
+        image: consul:0.7.2
+        ports:
+              - "8500:8500"
+    quote1:
+        image: agoncal/quote1:latest
+        ports:
+              - "8081:8081"

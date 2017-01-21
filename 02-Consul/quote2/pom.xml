@@ -7,7 +7,7 @@
     <artifactId>quote2</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
-    <name>MicroServices Sample with Wildfly Swarm and Consul :: Service 2</name>
+    <name>MicroServices Sample with Wildfly Swarm and Consul :: Quote 2</name>
 
     <parent>
         <groupId>org.agoncal.sample.microservice.consul</groupId>
@@ -26,6 +26,10 @@
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.agoncal.sample.microservice.consul</groupId>
+            <artifactId>commons</artifactId>
         </dependency>
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
@@ -99,5 +103,36 @@
                 </plugins>
             </build>
         </profile>
+            <profile>
+            <id>docker</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>${project.basedir}/src/main/docker</directory>
+                        <targetPath>${project.build.directory}/docker</targetPath>
+                        <includes>
+                            <include>Dockerfile</include>
+                        </includes>
+                    </resource>
+                </resources>
+                <plugins>
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <skipTests>true</skipTests>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
     </profiles>
 </project>
