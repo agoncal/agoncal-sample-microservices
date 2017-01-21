@@ -9,6 +9,19 @@ The purpose of this sample is to show you how WildFly Swarm Topology interacts w
 
 [Read more on my blog](http://antoniogoncalves.org/2011/01/12/bootstrapping-cdi-in-several-environments/)
 
+## Consul
+
+Start consul :
+
+    $ consul agent -dev
+
+Check the Admin Console at [http://localhost:8500/ui]()
+
+Check the [REST APIs](https://www.consul.io/docs/agent/http.html) at :
+
+* [http://localhost:8500/v1/catalog/nodes]()
+* [http://localhost:8500/v1/catalog/services]()
+* [http://localhost:8500/v1/catalog/service/quote1]()
 
 # Licensing
 

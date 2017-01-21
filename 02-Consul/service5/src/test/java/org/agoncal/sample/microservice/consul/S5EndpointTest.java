@@ -34,9 +34,7 @@ public class S5EndpointTest {
 
     @Deployment(testable = false)
     public static WebArchive createDeployment() {
-
-        return ShrinkWrap.create(WebArchive.class)
-                .addClasses(S5Endpoint.class, Application.class);
+        return ShrinkWrap.create(WebArchive.class).addClasses(S5Endpoint.class, Application.class);
     }
 
     // ======================================

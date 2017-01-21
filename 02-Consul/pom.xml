@@ -10,6 +10,7 @@
     <name>MicroServices Sample with Wildfly Swarm and Consul</name>
 
     <modules>
+        <module>commons</module>
         <module>service1</module>
         <module>service2</module>
         <module>service3</module>
@@ -28,6 +29,9 @@
 
         <!-- App servers -->
         <version.wildfly-swarm>2017.1.1</version.wildfly-swarm>
+
+        <!-- Others -->
+        <version.consul>1.2.1</version.consul>
 
         <!-- Test -->
         <version.arquillian>1.0.0.Alpha5</version.arquillian>
@@ -69,6 +73,13 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- PROJECT -->
+            <dependency>
+                <groupId>org.agoncal.sample.microservice.consul</groupId>
+                <artifactId>commons</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
             <!-- JAVA EE -->
             <dependency>
                 <groupId>javax</groupId>
@@ -84,6 +95,13 @@
                 <version>${version.wildfly-swarm}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!-- OTHERS -->
+            <dependency>
+                <groupId>com.ecwid.consul</groupId>
+                <artifactId>consul-api</artifactId>
+                <version>${version.consul}</version>
             </dependency>
 
             <!-- TEST -->

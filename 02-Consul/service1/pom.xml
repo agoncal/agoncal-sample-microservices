@@ -28,6 +28,10 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>org.agoncal.sample.microservice.consul</groupId>
+            <artifactId>commons</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>topology-consul</artifactId>
         </dependency>
@@ -92,7 +96,7 @@
                         <configuration>
                             <properties>
                                 <swarm.http.port>8081</swarm.http.port>
-                                <swarm.context.path>${project.build.finalName}</swarm.context.path>
+                                <swarm.context.path>/</swarm.context.path>
                             </properties>
                         </configuration>
                     </plugin>
