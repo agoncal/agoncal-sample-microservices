@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {QuotesService} from "../quotes.service";
 
 @Component({
@@ -16,17 +16,19 @@ export class QuotesComponent implements OnInit {
   quote6: string = 'Quote 6';
   errorMessage: string;
 
-
-  constructor(private _quotesService: QuotesService) { }
+  constructor(private _quotesService: QuotesService) {
+  }
 
   ngOnInit() {
   }
 
   invokeQuotes(): void {
-    this._quotesService.getQuote1()
-      .subscribe(quote => this.quote1 = quote,
-        error => this.errorMessage = <any>error);
-
+    this.errorMessage = "";
+    this._quotesService.getQuote1().subscribe(quote => this.quote1 = quote, error => this.errorMessage = <any>error);
+    this._quotesService.getQuote2().subscribe(quote => this.quote2 = quote, error => this.errorMessage = <any>error);
+    this._quotesService.getQuote3().subscribe(quote => this.quote3 = quote, error => this.errorMessage = <any>error);
+    this._quotesService.getQuote4().subscribe(quote => this.quote4 = quote, error => this.errorMessage = <any>error);
+    this._quotesService.getQuote5().subscribe(quote => this.quote5 = quote, error => this.errorMessage = <any>error);
+    this._quotesService.getQuote6().subscribe(quote => this.quote6 = quote, error => this.errorMessage = <any>error);
   }
-
 }
