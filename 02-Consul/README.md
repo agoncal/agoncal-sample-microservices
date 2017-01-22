@@ -52,12 +52,23 @@ Check the [REST APIs](https://www.consul.io/docs/agent/http.html) at :
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.26.
 
-### Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
 ### Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+These are the commands that generate most of the application : 
+
+* `ng new quote --prefix qt`
+* `npm install ng2-bootstrap --save`
+* `ng generate component quotes`
+* `ng generate service quotes`
+* `ng generate component chain`
+* `ng generate component asyn`
+ 
+ 
+ to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+
+### Development server
+
+Before anything, you need to download the needed dependencies. You can use [Yarn](https://yarnpkg.com/) running `yarn install` under the `web` directory,. Then, run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ### Build
 
