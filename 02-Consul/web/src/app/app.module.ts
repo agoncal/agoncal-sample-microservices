@@ -7,6 +7,7 @@ import { AlertModule } from 'ng2-bootstrap';
 
 import { AppComponent } from './app.component';
 import { QuotesComponent } from './quotes/quotes.component';
+import {QuotesService} from "./quotes.service";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { QuotesComponent } from './quotes/quotes.component';
     HttpModule,
     AlertModule.forRoot()
   ],
-  providers: [],
+  providers: [QuotesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

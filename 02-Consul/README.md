@@ -57,7 +57,7 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 These are the commands that generate most of the application : 
 
 * `ng new quote --prefix qt`
-* `npm install ng2-bootstrap --save`
+* `npm install ng2-bootstrap bootstrap --save`
 * `ng generate component quotes`
 * `ng generate service quotes`
 * `ng generate component chain`
