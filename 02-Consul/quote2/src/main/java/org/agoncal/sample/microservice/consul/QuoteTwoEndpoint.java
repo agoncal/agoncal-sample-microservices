@@ -22,7 +22,7 @@ public class QuoteTwoEndpoint {
     // =             Constants              =
     // ======================================
 
-    public static final String QUOTE = "Seven for the Dwarf-lords in their halls of stone,";
+    public static final String QUOTE = "Seven for the Dwarf-lords in their halls of stone, ";
 
     // ======================================
     // =          Business methods          =

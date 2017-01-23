@@ -22,7 +22,7 @@ public class QuoteFiveEndpoint {
     // =             Constants              =
     // ======================================
 
-    public static final String QUOTE = "One Ring to rule them all. One Ring to find them,";
+    public static final String QUOTE = "One Ring to rule them all. One Ring to find them, ";
 
     // ======================================
     // =          Business methods          =

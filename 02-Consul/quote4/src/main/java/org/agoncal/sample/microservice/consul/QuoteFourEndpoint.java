@@ -22,7 +22,7 @@ public class QuoteFourEndpoint {
     // =             Constants              =
     // ======================================
 
-    public static final String QUOTE = "One for the Dark Lord on his dark throne.";
+    public static final String QUOTE = "One for the Dark Lord on his dark throne. ";
 
     // ======================================
     // =          Business methods          =

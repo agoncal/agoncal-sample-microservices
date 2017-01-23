@@ -28,7 +28,7 @@ public class QuoteOneEndpoint {
     // ======================================
 
     public static final Logger LOG = Logger.getLogger(QuoteOneEndpoint.class.getName());
-    public static final String QUOTE = "Three Rings for the Elven-kings under the sky,";
+    public static final String QUOTE = "Three Rings for the Elven-kings under the sky, ";
 
     // ======================================
     // =          Business methods          =

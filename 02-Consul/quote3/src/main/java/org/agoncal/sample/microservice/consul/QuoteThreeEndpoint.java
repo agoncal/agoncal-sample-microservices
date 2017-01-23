@@ -22,7 +22,7 @@ public class QuoteThreeEndpoint {
     // =             Constants              =
     // ======================================
 
-    public static final String QUOTE = "Nine for Mortal Men doomed to die,";
+    public static final String QUOTE = "Nine for Mortal Men doomed to die, ";
 
     // ======================================
     // =          Business methods          =
