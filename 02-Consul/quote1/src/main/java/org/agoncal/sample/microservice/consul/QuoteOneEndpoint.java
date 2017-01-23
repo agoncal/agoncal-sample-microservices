@@ -9,7 +9,6 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.net.URI;
-import java.util.logging.Logger;
 
 import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 
@@ -27,7 +26,6 @@ public class QuoteOneEndpoint {
     // =             Constants              =
     // ======================================
 
-    public static final Logger LOG = Logger.getLogger(QuoteOneEndpoint.class.getName());
     public static final String QUOTE = "Three Rings for the Elven-kings under the sky, ";
 
     // ======================================
@@ -41,12 +39,11 @@ public class QuoteOneEndpoint {
 
     @GET
     @Path("/chain")
-    public Response chainQuotes() {
+    public Response chainAllQuotes() {
 
-        // Invoke Service 2
-        URI chainURI = ConsulRegistry.discoverServiceURI("quote2");
-        LOG.info("##### URI " + chainURI);
-        String nextQuote  = ClientBuilder.newClient().target(chainURI).path("quotes").request(TEXT_PLAIN).get(String.class);
+        // Invoke Quote 2
+        URI nextQuoteURI = ConsulRegistry.discoverServiceURI("quote2");
+        String nextQuote  = ClientBuilder.newClient().target(nextQuoteURI).path("quotes/chain").request(TEXT_PLAIN).get(String.class);
 
         return Response.ok(QUOTE + nextQuote).build();
     }
