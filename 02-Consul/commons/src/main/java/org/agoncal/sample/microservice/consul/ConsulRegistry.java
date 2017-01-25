@@ -3,6 +3,8 @@ package org.agoncal.sample.microservice.consul;
 import com.ecwid.consul.v1.ConsulClient;
 import com.ecwid.consul.v1.agent.model.Service;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.net.URI;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -12,22 +14,33 @@ import java.util.logging.Logger;
  *         http://www.antoniogoncalves.org
  *         --
  */
+@Auditable
+@ApplicationScoped
 public class ConsulRegistry {
 
     // ======================================
     // =             Constants              =
     // ======================================
 
-    public static final Logger LOG = Logger.getLogger(ConsulRegistry.class.getName());
+    @Inject
+    private Logger logger;
+
+    // ======================================
+    // =             Attributes             =
+    // ======================================
+
+    private ConsulClient consulClient;
 
     // ======================================
     // =          Business methods          =
     // ======================================
 
-    public static URI discoverServiceURI(String name) {
+    public URI discoverServiceURI(String name) {
 
-        ConsulClient client = getConsulClient();
-        Map<String, Service> agentServices = client.getAgentServices().getValue();
+        if (consulClient == null)
+        consulClient = getConsulClient();
+
+        Map<String, Service> agentServices = consulClient.getAgentServices().getValue();
 
         Service match = null;
 
@@ -41,19 +54,17 @@ public class ConsulRegistry {
         if (null == match)
             throw new RuntimeException("Service '" + name + "' cannot be found!");
 
-
-        // ...
         try {
-            LOG.info("#### Discovering service " + name + " at http://" + match.getAddress() + ":" + match.getPort());
+            logger.info("#### Discovering service " + name + " at http://" + match.getAddress() + ":" + match.getPort());
             return new URI("http://" + match.getAddress() + ":" + match.getPort());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static ConsulClient getConsulClient() {
+    public ConsulClient getConsulClient() {
         String consulHost = System.getProperty("consul.host", "localhost");
-        LOG.info(("#### Consul client on address : " + consulHost));
+        logger.info(("#### Consul client on address : " + consulHost));
         ConsulClient client = new ConsulClient(consulHost);
         return client;
     }

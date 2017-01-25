@@ -15,10 +15,11 @@ You have different ways to build and test the app :
 
 * `mvn clean install` : creates several war files to deploy on a Wildfly 
 * `mvn clean install -Pswarm` : creates several uber-jar files so you can execute the jar 
-* `mvn clean install -Pswarm,docker` : creates docker images for the services 
+* You can then start all the processes with `launch_all_services.sh`, curl all the services with `curl_all_services.sh` and kill them all with `pkill -f quote`
 
 ## Docker
 
+* `mvn clean install -Pswarm,docker` : creates docker images for the services 
 * `docker image ls` : show all the images
 * `docker image ls | grep quote` : show all the images for quotes
 * `docker image ls | grep quote` : show all the images for quotes
