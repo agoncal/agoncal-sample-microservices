@@ -22,8 +22,8 @@ You have different ways to build and test the app :
 * `mvn clean install -Pswarm,docker` : creates docker images for the services 
 * `docker image ls` : show all the images
 * `docker image ls | grep quote` : show all the images for quotes
-* `docker image ls | grep quote` : show all the images for quotes
-* `docker run -p 8081:8081 agoncal/quote1`
+* `docker container ls`
+* `docker container run -p 8081:8081 agoncal/quote1`
 
 ### Docker compose
 
