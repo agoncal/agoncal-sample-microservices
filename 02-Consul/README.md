@@ -62,10 +62,8 @@ These are the commands that generate most of the application :
 * `ng generate component quotes`
 * `ng generate service quotes`
 * `ng generate component chain`
-* `ng generate component asyn`
- 
- 
- to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+* `ng generate component aggregate`
+* `ng generate component asynch`
 
 ### Development server
 

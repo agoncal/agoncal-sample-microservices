@@ -11,6 +11,9 @@ export class QuotesService {
   private _quote4Url = 'http://localhost:8084/quotes';
   private _quote5Url = 'http://localhost:8085/quotes';
   private _quote6Url = 'http://localhost:8086/quotes';
+  private _chainUrl = 'http://localhost:8081/quotes/chain';
+  private _aggregateUrl = 'http://localhost:8081/quotes/aggregate';
+  private _asynchUrl = 'http://localhost:8081/quotes/asynch';
 
   constructor(private _http: Http) {
   }
@@ -54,6 +57,27 @@ export class QuotesService {
     return this._http.get(this._quote6Url)
       .map((response: Response) => <string> response.text())
       .do(data => console.log('Quote 6 received: ' + data))
+      .catch(this.handleError);
+  }
+
+  getChainedQuotes(): Observable<string> {
+    return this._http.get(this._chainUrl)
+      .map((response: Response) => <string> response.text())
+      .do(data => console.log('Chained Quotes received: ' + data))
+      .catch(this.handleError);
+  }
+
+  getAggregatedQuotes(): Observable<string> {
+    return this._http.get(this._aggregateUrl)
+      .map((response: Response) => <string> response.text())
+      .do(data => console.log('Aggregated Quotes received: ' + data))
+      .catch(this.handleError);
+  }
+
+  getAsynchQuotes(): Observable<string> {
+    return this._http.get(this._asynchUrl)
+      .map((response: Response) => <string> response.text())
+      .do(data => console.log('Asynchronous Quotes received: ' + data))
       .catch(this.handleError);
   }
 
