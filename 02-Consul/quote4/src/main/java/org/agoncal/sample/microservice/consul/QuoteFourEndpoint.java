@@ -22,6 +22,7 @@ import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 @Advertise("quote4")
 @Path("/quotes")
 @Produces(MediaType.TEXT_PLAIN)
+@Auditable
 public class QuoteFourEndpoint {
 
     // ======================================

@@ -16,6 +16,7 @@ import javax.ws.rs.core.Response;
 @Advertise("quote6")
 @Path("/quotes")
 @Produces(MediaType.TEXT_PLAIN)
+@Auditable
 public class QuoteSixEndpoint {
 
     // ======================================
