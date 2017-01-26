@@ -10,3 +10,4 @@ EXPOSE 8086
 
 COPY quote6-swarm.jar /opt/quote6-swarm.jar
 ENTRYPOINT ["java", "-jar", "/opt/quote6-swarm.jar"]
+CMD ["-Dswarm.topology.consul.url=http://consul:8500"]

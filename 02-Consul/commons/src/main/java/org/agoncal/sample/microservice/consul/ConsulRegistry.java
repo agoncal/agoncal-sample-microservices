@@ -38,32 +38,34 @@ public class ConsulRegistry {
     public URI discoverServiceURI(String name) {
 
         if (consulClient == null)
-        consulClient = getConsulClient();
-
-        Map<String, Service> agentServices = consulClient.getAgentServices().getValue();
-
-        Service match = null;
-
-        for (Map.Entry<String, Service> entry : agentServices.entrySet()) {
-            if (entry.getValue().getService().equals(name)) {
-                match = entry.getValue();
-                break;
-            }
-        }
-
-        if (null == match)
-            throw new RuntimeException("Service '" + name + "' cannot be found!");
+            consulClient = getConsulClient();
 
         try {
+            Map<String, Service> agentServices = consulClient.getAgentServices().getValue();
+
+            Service match = null;
+
+            for (Map.Entry<String, Service> entry : agentServices.entrySet()) {
+                if (entry.getValue().getService().equals(name)) {
+                    match = entry.getValue();
+                    break;
+                }
+            }
+
+            if (null == match)
+                throw new RuntimeException("Service '" + name + "' cannot be found!");
+
             logger.info("#### Discovering service " + name + " at http://" + match.getAddress() + ":" + match.getPort());
             return new URI("http://" + match.getAddress() + ":" + match.getPort());
+
         } catch (Exception e) {
+            consulClient = null;
             throw new RuntimeException(e);
         }
     }
 
     public ConsulClient getConsulClient() {
-        String consulHost = System.getProperty("consul.host", "localhost");
+        String consulHost = System.getProperty("swarm.topology.consul.url", "localhost");
         logger.info(("#### Consul client on address : " + consulHost));
         ConsulClient client = new ConsulClient(consulHost);
         return client;
