@@ -5,6 +5,12 @@ import {Response, Http} from "@angular/http";
 @Injectable()
 export class QuotesService {
 
+  private _consulQuote1Url = 'http://localhost:8500/v1/catalog/service/quote1';
+  private _consulQuote2Url = 'http://localhost:8500/v1/catalog/service/quote2';
+  private _consulQuote3Url = 'http://localhost:8500/v1/catalog/service/quote3';
+  private _consulQuote4Url = 'http://localhost:8500/v1/catalog/service/quote4';
+  private _consulQuote5Url = 'http://localhost:8500/v1/catalog/service/quote5';
+  private _consulQuote6Url = 'http://localhost:8500/v1/catalog/service/quote6';
   private _quote1Url = 'http://localhost:8081/quotes';
   private _quote2Url = 'http://localhost:8082/quotes';
   private _quote3Url = 'http://localhost:8083/quotes';
