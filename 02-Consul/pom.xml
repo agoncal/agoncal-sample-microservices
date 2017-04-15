@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
@@ -28,13 +28,13 @@
         <version.javaee>7.0</version.javaee>
 
         <!-- App servers -->
-        <version.wildfly-swarm>2017.1.1</version.wildfly-swarm>
+        <version.wildfly-swarm>2017.2.0</version.wildfly-swarm>
 
         <!-- Others -->
         <version.consul>1.2.1</version.consul>
 
         <!-- Test -->
-        <version.arquillian>1.0.0.Alpha5</version.arquillian>
+        <version.arquillian>1.0.0.Alpha7</version.arquillian>
         <version.arquillian.junit>1.1.12.Final</version.arquillian.junit>
         <version.arquillian.wildfly.remote>8.2.1.Final</version.arquillian.wildfly.remote>
         <version.arquillian.wildfly.managed>8.2.1.Final</version.arquillian.wildfly.managed>

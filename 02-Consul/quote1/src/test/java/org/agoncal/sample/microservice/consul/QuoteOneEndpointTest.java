@@ -5,12 +5,15 @@ import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.Response;
+import java.io.File;
 import java.net.URI;
 
 import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
@@ -34,7 +37,13 @@ public class QuoteOneEndpointTest {
 
     @Deployment(testable = false)
     public static WebArchive createDeployment() {
-        return ShrinkWrap.create(WebArchive.class).addClasses(QuoteOneEndpoint.class, Application.class);
+
+        File[] commons = Maven.resolver().resolve("org.agoncal.sample.microservice.consul:commons:1.0").withTransitivity().asFile();
+
+        return ShrinkWrap.create(WebArchive.class)
+            .addClasses(QuoteOneEndpoint.class, Application.class)
+            .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
+            .addAsLibraries(commons);
     }
 
     // ======================================
