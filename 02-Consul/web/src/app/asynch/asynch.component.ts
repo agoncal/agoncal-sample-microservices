@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {QuotesService} from "../quotes.service";
 
 @Component({
   selector: 'qt-asynch',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsynchComponent implements OnInit {
 
-  constructor() { }
+    quotes: string = 'Quotes';
+    errorMessage: string;
+
+    constructor(private _quotesService: QuotesService) {
+    }
 
   ngOnInit() {
   }
 
+    asynchQuotes(): void {
+        this.errorMessage = "";
+        this._quotesService.getAsynchQuotes().subscribe(quotes => this.quotes = quotes, error => this.errorMessage = <any>error);
+    }
 }

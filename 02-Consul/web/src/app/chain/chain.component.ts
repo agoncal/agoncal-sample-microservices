@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {QuotesService} from "../quotes.service";
 
 @Component({
   selector: 'qt-chain',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChainComponent implements OnInit {
 
-  constructor() { }
+    quotes: string = 'Quotes';
+    errorMessage: string;
+
+    constructor(private _quotesService: QuotesService) {
+    }
 
   ngOnInit() {
   }
 
+    chainQuotes(): void {
+        this.errorMessage = "";
+        this._quotesService.getChainedQuotes().subscribe(quotes => this.quotes = quotes, error => this.errorMessage = <any>error);
+    }
 }
