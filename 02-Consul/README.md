@@ -57,7 +57,7 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 
 These are the commands that generate most of the application : 
 
-* `ng new quote --prefix qt --skip-commit -skip-tests --skip-git --routing false --link-cli --directory web`
+* `ng new quote --prefix qt --skip-commit -skip-tests --skip-git --routing false --directory web`
 * `ng generate component quotes --spec false`
 * `ng generate component chain --spec false`
 * `ng generate component aggregate --spec false`
