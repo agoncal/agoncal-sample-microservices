@@ -62,7 +62,7 @@ These are the commands that generate most of the application :
 * `ng generate component chain --spec false`
 * `ng generate component aggregate --spec false`
 * `ng generate component asynch --spec false`
-* `ng generate service quotes --spec false --module AppModule`
+* `ng generate service quotes --spec false --module app.module`
 
 To setup Twitter Bootstrap we need the following steps
 
