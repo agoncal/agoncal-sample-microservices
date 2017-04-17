@@ -51,19 +51,63 @@ Check the [REST APIs](https://www.consul.io/docs/agent/http.html) at :
 
 ## Web
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.26.
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0.
 
 ### Code scaffolding
 
 These are the commands that generate most of the application : 
 
-* `ng new quote --prefix qt`
-* `npm install ng2-bootstrap bootstrap --save`
-* `ng generate component quotes`
-* `ng generate service quotes`
-* `ng generate component chain`
-* `ng generate component aggregate`
-* `ng generate component asynch`
+* `ng new quote --prefix qt --skip-commit -skip-tests --skip-git --routing false`
+* `ng generate component quotes --spec false`
+* `ng generate component chain --spec false`
+* `ng generate component aggregate --spec false`
+* `ng generate component asynch --spec false`
+* `ng generate service quotes --spec false --module AppModule`
+
+To setup Twitter Bootstrap we need the following steps
+
+* Install Bootstrap dependency `yarn add bootstrap@4.0.0-alpha.6`
+* In `angular-cli.json` file add :
+
+```
+"styles": [
+  "../node_modules/bootstrap/dist/css/bootstrap.css",
+  "styles.css"
+],
+"scripts": [
+  "../node_modules/jquery/dist/jquery.slim.js",
+  "../node_modules/tether/dist/js/tether.js",
+  "../node_modules/bootstrap/dist/js/bootstrap.js"
+],
+```
+
+* Add Bootstrap to the main `app.component.html` page
+
+```
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="">{{title}}</a>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="">List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">Create</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="jumbotron">
+        Components will go there
+    </div>
+</div>
+```
 
 ### Development server
 
