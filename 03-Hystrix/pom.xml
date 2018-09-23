@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.agoncal.sample.microservices.hystrix</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <name>MicroServices Sample with Wildfly Swarm and Consul</name>
+
+    <modules>
+        <module>hystrix-monitor</module>
+        <module>stock-broker</module>
+        <module>stock-price</module>
+    </modules>
+
+    <prerequisites>
+        <maven>3.1</maven>
+    </prerequisites>
+
+</project>
