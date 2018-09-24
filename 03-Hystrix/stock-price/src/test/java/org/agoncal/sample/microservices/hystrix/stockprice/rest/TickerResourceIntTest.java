@@ -33,9 +33,8 @@ public class TickerResourceIntTest {
 
     @Test
     public void checkHealth() throws Exception {
-
         // Checks Health
-        restTickerResourceMockMvc.perform(get("/getTickerPrice/health"))
+        restTickerResourceMockMvc.perform(get("/api/getTickerPrice/health"))
                 .andExpect(status().isOk());
     }
 }

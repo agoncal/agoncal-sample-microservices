@@ -5,30 +5,34 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Random;
 
 @RestController
+@RequestMapping("/api")
 public class TickerResource {
 
     private final Logger LOGGER = LoggerFactory.getLogger(TickerResource.class);
 
     private long outOfServiceRate = 10;
-    private long stdDevProcessingTimeInMillis = 20;
-    private long meanProcessingTimeInMillis = 20;
+    private long stdDevProcessingTimeInMillis = 800;
 
 
     @GetMapping("/getTickerPrice/{ticker}")
     public Double getTickerPrice(@PathVariable String ticker) {
+
+        // Processing time
         Random r = new Random();
-        long processingTime = (long) (r.nextGaussian() * stdDevProcessingTimeInMillis + meanProcessingTimeInMillis);
-        LOGGER.info("Processing Time: {0}", processingTime);
+        long processingTime = (long) Math.abs(r.nextGaussian() * stdDevProcessingTimeInMillis);
         try {
             Thread.sleep(processingTime);
         } catch (InterruptedException e) {
             LOGGER.error(e.getMessage(), e);
         }
+
+        // Unavailability rate
         if (r.nextDouble() < (outOfServiceRate / 100.0)) {
             throw new RuntimeException("Service not available");
         }
@@ -36,6 +40,7 @@ public class TickerResource {
     }
 
     private Double getTickerPriceFromExchanges(String ticker) {
+        LOGGER.info("Getting a price !!!");
         return new Random().nextDouble();
     }
 
