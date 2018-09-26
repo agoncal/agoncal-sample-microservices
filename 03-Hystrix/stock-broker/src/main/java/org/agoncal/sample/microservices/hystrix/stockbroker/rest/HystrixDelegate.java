@@ -13,30 +13,27 @@ import java.util.concurrent.Future;
 @Service
 public class HystrixDelegate implements PriceDelegate {
 
-    HystrixCommand.Setter config;
+    private HystrixCommand.Setter config;
+    private TickerPriceRetrieverService priceService;
+    private final RestTemplate restTemplate;
 
-    public HystrixDelegate(
-            TickerPriceRetrieverService priceDelegateImpl) {
-        this.priceDelegateImpl = priceDelegateImpl;
+    public HystrixDelegate(TickerPriceRetrieverService priceService) {
+        this.priceService = priceService;
         restTemplate = new RestTemplate();
         config = HystrixCommand
                 .Setter
-                .withGroupKey(HystrixCommandGroupKey
-                        .Factory.asKey("PriceCommand"));
-        HystrixCommandProperties.Setter commandProperties =
-                HystrixCommandProperties.Setter();
-        commandProperties
-                .withExecutionIsolationThreadTimeoutInMilliseconds(1200);
+                .withGroupKey(HystrixCommandGroupKey.Factory.asKey("PriceCommand"));
+        HystrixCommandProperties.Setter commandProperties = HystrixCommandProperties.Setter();
+        commandProperties.withExecutionIsolationThreadTimeoutInMilliseconds(1200);
         config.andCommandPropertiesDefaults(commandProperties);
-        config.andThreadPoolPropertiesDefaults(
-                HystrixThreadPoolProperties.Setter()
-                        .withMaxQueueSize(-1)
-                        .withCoreSize(15));
+        config.andThreadPoolPropertiesDefaults(HystrixThreadPoolProperties.Setter()
+                .withMaxQueueSize(-1)
+                .withCoreSize(15));
     }
 
     @Override
     public Double getLatestPrice(String ticker) throws Exception {
-        PriceCommand pc = new PriceCommand(priceDelegateImpl, ticker, restTemplate, config);
+        PriceCommand pc = new PriceCommand(priceService, ticker, restTemplate, config);
         Future<Double> pcFuture = pc.queue();
         return pcFuture.get();
     }

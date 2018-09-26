@@ -23,7 +23,7 @@ public class TickerResource {
     @GetMapping("/getTickerPrice/{ticker}")
     public Double getTickerPrice(@PathVariable String ticker) {
 
-        // Processing time
+        // Latency
         Random r = new Random();
         long processingTime = (long) Math.abs(r.nextGaussian() * stdDevProcessingTimeInMillis);
         try {
@@ -32,7 +32,7 @@ public class TickerResource {
             LOGGER.error(e.getMessage(), e);
         }
 
-        // Unavailability rate
+        // Fault Tolerance
         if (r.nextDouble() < (outOfServiceRate / 100.0)) {
             throw new RuntimeException("Service not available");
         }

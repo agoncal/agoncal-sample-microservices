@@ -10,7 +10,7 @@ public class TickerPriceRetrieverService {
 
     public Double getLatestPrice(String ticker, RestTemplate restTemplate) throws Exception {
         Double price = restTemplate.exchange(
-                "http://localhost:8098/getTickerPrice/{ticker}"
+                "http://localhost:8083/price/api/getTickerPrice/{ticker}"
                 , HttpMethod.GET
                 , null
                 , new ParameterizedTypeReference<Double>() {

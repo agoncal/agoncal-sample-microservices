@@ -4,7 +4,7 @@ import com.netflix.hystrix.HystrixCommand;
 import org.agoncal.sample.microservices.hystrix.stockbroker.service.TickerPriceRetrieverService;
 import org.springframework.web.client.RestTemplate;
 
-static class PriceCommand extends HystrixCommand<Double> {
+class PriceCommand extends HystrixCommand<Double> {
 
     private final TickerPriceRetrieverService priceDelegate;
     private final String ticker;
@@ -26,6 +26,6 @@ static class PriceCommand extends HystrixCommand<Double> {
 
     @Override
     public Double getFallback() {
-        return Cache.getPrice(ticker);
+        return 99.999;
     }
 }
